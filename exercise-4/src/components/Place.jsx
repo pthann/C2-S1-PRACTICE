@@ -1,10 +1,14 @@
-export default function Place({title,src, alt}) {
+// ./components/Place.jsx
+import React from "react";
+
+function Place({ title, src, alt }) {
+  console.log("Props:", { title, src, alt }); // Debugging line
   return (
-    <li key="the place id" className="place-item">
-      <button>
-        <img src={src} alt={alt} />
-        <h3>{title}</h3>
-      </button>
+    <li className="place">
+      <img src={src} alt={alt} />
+      <h2>{title}</h2>
     </li>
   );
 }
+
+export default Place;
