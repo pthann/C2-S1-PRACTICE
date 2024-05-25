@@ -2,13 +2,13 @@ import React from "react";
 import { ALL_PNV_TEACHERS } from "./teachers.js";
 
 // NO change to perform here...
-export function User({ user }) {
+export function User({ firstName, lastName, title}) {
   return (
     <div id="user" data-testid="user">
       <h2>
-        {user.firstName} {user.lastName}{" "}
+        {firstName} {lastName}{" "}
       </h2>
-      <p> {user.title}</p>
+      <p> {title}</p>
     </div>
   );
 }
@@ -18,7 +18,14 @@ function App() {
     <div id="app">
       <h1>PNV Team !!</h1>
       <p>Here are some PNV trainers and educators, do you know them?</p>
-      <User /> {/* How to loop on ALL_PNV_TEACHERS list ? */}
+      {ALL_PNV_TEACHERS.map((data, index)=>(
+        <User
+          key= {index}
+          firstName ={data.firstName}
+          lastName = {data.lastName}
+          title = {data.title}
+         />
+      ))}
     </div>
   );
 }
